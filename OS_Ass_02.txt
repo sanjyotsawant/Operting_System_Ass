@@ -1,0 +1,308 @@
+1. Write a script to create 10 directories, say a1,a2,...,a10
+Report error if a directory/file exists with the same name.
+		
+		for i in {1..10}
+		do
+        		mkdir a$i
+		done
+
+
+2. Write a menu based script to perform following string operations
+a) To find length of a string
+c) Copying string
+d) Concatenation of strings
+e) Compare two strings
+f) Reversing a string
+		
+		while(true)
+		do
+       		 	echo "1.find length"
+        		echo "2.Copy string"
+        		echo "3.concat string"
+        		echo "4.compare string"
+        		echo "5.Rev string"
+
+		read str1
+		read str2
+		read option
+
+		case $option in
+        		1) echo ${#str1}
+               			 ;;
+        		2) str3=$str1
+                		echo $str3
+                		;;
+        		3) echo $str1$str2
+                		;;
+        		4) if [ $str1 == $str2 ]; then
+                		echo "equal"
+          		   else
+                		echo "Not equal"
+          		   fi
+                		;;
+        		5) echo $str1 | rev
+                		;;
+        		*) exit;;
+
+        		esac
+		done
+
+
+
+3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
+
+
+4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+
+5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+
+		
+	for file in *.txt; 
+		do
+       		[ -w $file ] && W="Write = yes" || W="Write = No"
+        	[ -r $file ] && R="Read = yes" || R="Read = No"
+        	[ -x $file ] && X="Execute = yes" || X="Execute = No"
+
+        	echo "$file permissions"
+		echo "$W"
+		echo "$R"
+		echo "$X"
+	done
+
+
+
+6. Write a shell script to print all files permissions and name of file
+
+		echo -n "Enter file name : "
+		read file
+		[ -w $file ] && W="Write = yes" || W="Write = No"
+		[ -x $file ] && X="Execute = yes" || X="Execute = No"
+		[ -r $file ] && R="Read = yes" || R="Read = No"
+
+		echo "$file permissions"
+		echo "$W"
+		echo "$R"
+		echo "$X"
+
+
+
+7.Write a shell script to print all files name and size greater than 5K
+
+	find . -type f -size +4096c
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Write a script To check given year is leap or not.
+	
+	echo -n "Enter Year : "
+	read n
+	if [ $(($n % 100)) == 100 ]; then
+        if [ $(($n % 400)) == 0 ]; then
+                echo "Leap Year"
+        else
+                echo "Not Leap Year"
+        fi
+
+	elif [ $(($n % 4)) == 0 ]; then
+        	echo "Leap Year"
+	else
+        	echo "Not Leap Year"
+	fi
+
+
+
+2. Write a script to print day of the week using
+	a) elif
+		
+		echo "Enter a number between 1 to 7"
+		read n
+		if [ "$n" == "1" ];then
+        		echo "Monday"
+		elif [ "$n" == "2" ];then
+        		echo "Tuesday"
+		elif [ "$n" == "3" ];then
+        		echo "Wednesday"
+		elif [ "$n" == "4" ];then
+        		echo "Thursday"
+		elif [ "$n" == "5" ];then
+        		echo "Friday"
+		elif [ "$n" == "6" ];then
+        		echo "saturday"
+		elif [ "$n" == "7" ];then
+        		echo "Sunday"
+		else
+        		echo "Wrong Choice"
+		fi
+
+
+	b) case 
+
+		echo "Enter a Number :"
+		read n
+		case $n in
+        		1) echo "Sunday" ;;
+        		2) echo "Monday" ;;
+        		3) echo "Tuesday" ;;
+        		4) echo "Wedenesday" ;;
+        		5) echo "Thursday" ;;
+        		6) echo "Friday" ;;
+        		7) echo "Saturday" ;;
+        		*) exit ;;
+		esac
+
+3. a) Write a script to find biggest of three no.s
+
+	echo "Enter no1:"
+	read n1
+	echo "Enter no2:"
+	read n2
+	echo "Enter no3:"
+	read n3
+
+	if [ $n1 -gt $n2 ] && [ $n1 -gt $n3 ]
+	then
+	        echo $n1
+	elif [ $n2 -gt $n1 ] && [ $n2 -gt $n3 ]
+	then
+        	echo $n2
+	else
+	     echo "Greater No is : $n3"
+	fi
+
+
+   b) To find avg of 3 no.s, read no.s from keyboard
+
+		echo "Enter 1st no: "
+		read num1
+		echo "Enter 2nd no: "
+		read num2
+		echo "Enter 3rd no: "
+		read num3
+		sum=$(($num1 + $num2 + $num3))
+		avg=$(($sum/3))
+		echo "Average : $avg"
+
+
+
+4. Write a program to check wahether given no.is even or odd
+
+		echo -n "Enter numnber : "
+		read n
+ 		rem=$(( $n % 2 ))
+ 		if [ $rem -eq 0 ]; then
+  			echo "$n is even number"
+		else
+  			echo "$n is odd number"
+		fi
+
+
+
+5. Write a program to print calendar of current month in next year,previous years.
+	For eg:-sep 2014,sep 2012 if current month is sep 2013	
+
+
+
+6. Write a program to find sum and product of two no.s using 
+	a) let 
+	b)expr
+	c)bc	
+
+
+7. Write a script to generate Fibonacci series.
+
+		N=6
+		a=0
+		b=1
+		echo "The fibbonanci series is : "
+		for (( i=0 ; i<N ; i++ ))
+		do
+        		echo "$a"
+        		fn=$((a+b))
+			a=$b
+			b=$fn
+		done:wq
+
+
+8. Write a shell script to reverse the single strings.
+
+		echo "Enter string : "
+		read str
+		echo $str | rev
+
+ 
+9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+
+				
+
+
+10. Write a shell script to print the reverse of an input number.
+
+		echo "Enter string : "
+		read str
+		echo $str | rev
+
+	OR
+		echo "Enter a number"
+		read n
+		sd=0
+		rev=0
+
+		while [ $n -gt 0 ]
+		do
+    			sd=$(( $n % 10 ))
+    			rev=$(( $rev * 10 + $sd ))
+    			n=$(( $n / 10 ))
+		done
+		echo "Reverse number of entered digit is $rev"
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.Write a shell script to validate password strength. Here are a few assumptions for the password string.
+Length  – minimum of 8 characters.
+Contain both alphabet and number.
+Include both the small and capital case letters.
+If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
+
+	echo "enter the password"
+	read password
+	len="${#password}"
+	if test $len -ge 8 ; then
+	   echo "$password" | grep -q [0-9]
+	     if test $? -eq 0 ; then
+		echo "$password" | grep -q [A-Z]
+		   if test $? -eq 0 ; then
+			echo "$password" | grep -q [a-z]   
+			    if test $? -eq 0 ; then
+				echo "Strong password"
+			    else
+				echo "weak password include lower case char"
+			    fi
+		    else
+			echo "weak password include capital char" 
+		    fi
+		else
+			echo "please include the numbers in password it is weak password"   
+		fi
+	else
+		echo "password lenght should be greater than or equal 8 hence weak password"
+	fi

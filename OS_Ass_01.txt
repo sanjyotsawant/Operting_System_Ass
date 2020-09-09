@@ -1,0 +1,325 @@
+Q1. Explore the following commands with various options, refer man pages for 
+    further help a) date b) cal c) bc d) echo e) who f) whoami g) logname g) uname h)
+    seq i) clear
+
+Ans:  a) date +%a
+	 date +%A
+	 date +%b
+	 date +%B
+	 date +%d
+	 date +%D
+	 date +%Y
+	 date +%T
+	 date +%B' '%D' '%Y
+
+	b)cal
+		cal 20 2020
+   
+		cal jan 2020
+   
+		cal -m1 05
+
+	c)bc
+		echo "10^2" | bc
+   
+		echo "10+2" | bc
+
+	d)echo
+		echo "Hello Good MOrning"
+		 echo -e "hii" "Good" "MOrning"
+		echo -e "Hii \Hello \How are u"
+   		echo -e "Hii \cGood Morning"
+   		echo -e "Hii \nGood \nMorning"
+   		echo -e "Hii \tGood \tMorning"
+   		echo -e "Hii \rGood Morning"	
+   		echo -e "Hii \vGood \vMorning"
+		
+
+	e)Who
+		who -m -H
+   		who
+		who -T -H
+		who -b -H
+		who -p -H
+
+	f)whomi
+		whoami
+                whoami --version
+		
+	g) logname 
+		logname 
+   		logname --version
+
+	h) uname 
+-		uname
+   		uname  -a
+   		uname  -s
+   		uname  -n
+
+	i)  seq 
+		seq 2 2 10
+    		seq 10
+    		seq 2 10
+    		seq -f "Hello%02g" 2 4
+
+	j) clear
+		clear
+
+
+=========================================================================
+
+2.
+A) Create three directory a b and c and create a.txt,b.txt and c.txt in each          directory respectively and then copy c directory into the a.
+Ans:
+   mkdir a b c 
+   cd a
+   cat > a.txt
+   cat a.txt
+   cd ..
+   cd b
+   cat > b.txt
+   cat b.txt
+   cd ..
+   cd c
+   cat > c.txt
+   cat c.txt
+   mv c a
+
+B) Move Directory b to c.
+Ans:
+   mv b a
+   ls
+   cd a
+   ls 
+   mv b c
+   ls
+
+c) Create alias of ls -lh command to your name.
+Ans: 
+    alias list='ls -lh'
+
+D) Change Directory name a to cdac.
+Ans:
+    mv a cdac
+   
+Q3. 
+A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    file5.txt with some text inside it. Search for 's' character
+    inside all the files using grep command.
+    Also Use cat to view all file content 
+Ans:
+    cat > file1.txt
+    cat > file2.txt
+    cat > file3.txt
+    cat > file4.txt
+    cat > file5.txt
+    ls 
+    grep -c "S" file1.txt file2.txt file3.txt file4.txt file5.txt
+    cat file1.txt file2.txt file3.txt file4.txt file5.txt
+
+B) Create file.txt using cat and edit that using nano editor.
+Ans:
+   cat > file.txt
+
+c) Create 5 empty files using touch command
+Ans:
+   touch empty1.txt empty2.txt empty3.txt empty4.txt empty5.txt
+
+D) Remove previously created directory a , b and c.
+Ans:
+   rm -rf c
+
+
+========================================================================
+
+
+
+Q4. Create a file with some content using vi editor
+	
+a) Display the file using cat command
+Ans:
+   vi xyz.sh
+   cat xyz.sh
+
+b) Display line numbers along with content
+Ans:
+   cat -n file3.txt
+
+c) Display the file in reverse order using tac
+Ans:
+   tac file1.txt
+
+d) Combine multiple files using cat command
+Ans:
+   cat file1.txt file2.txt file3.txt file4.txt file4.txt
+
+
+==============================================================================
+
+
+Q5. Create Random some files and sub directories.
+
+a) display files row wise, column wise, 1 per row
+Ans:
+   
+b) sort the files in ascending, descending order
+Ans:
+   sort abc.txt
+
+C) Create some hidden files and sub directories and display them using “ls -a”
+Ans:
+   cat > .hidden.txt
+   mkdir .hide 
+   ls -a
+
+d) Change time stamp of some files and directories using touch command and display the files using ls -t ls -rt
+Ans:
+  
+e) Recursive display contents of your home directory. 
+Ans:
+   ls -R home
+
+f)display all attributes of files and directories using ls -l
+Ans:
+   ls -l
+
+g) display attributes of a directory using ls -ld
+Ans:
+    ls -ld 
+
+=====================================================================================
+Q1. Create directory of your name and then create 4 files inside it named a.txt,       b.txt, c.txt and d.sh. And change the directory permission to only user and also     files permission to only user such that
+Ans:
+   mkdir sanjyot
+   cd sanjyot
+   cat > a.txt
+   cat > b.txt
+   cat > c.txt
+   cat > d.sh
+   chmod 711 sanjyot
+
+a)user can read and write the file a.txt and b.txt
+Ans:
+   chmod 600 a.txt b.txt
+
+b)user can write the file c.txt
+Ans:
+   chmod 200 c.txt 
+
+c)user can exectuable the file d.sh. Make Contents of file :wqd.sh #/bin/sh
+  ls -lh
+Ans:
+   vi d.sh
+   chmod 100 d.sh
+
+Q2. Change the permission of the previous directory to executable only.
+Ans:
+   chmod 100 sanjyot
+
+Q.3. Change the permission of the previous directory to read only.
+-> chmod 200 sanjyot
+
+
+		
+
+
+================================================================================
+
+
+
+1.	Create Three level nested directory a,b and c
+		mkdir a
+		cd a
+		mkdir b
+		cd b
+		mkdir c
+		cd c
+	a)Create at least one hidden file in each directory
+		touch .sa.txt
+
+	b)Create at least one normal text file in each directory
+		touch text.txt
+	c)Copy c into a
+		cp c.txt a.txt
+		
+	d)Copy file inside a into b
+		 mv a.txt b.txt
+
+2.	Change the third level directory c permission to read only
+		chmod 444 c
+		
+3.	Try copying third level c directory to outside of a
+		
+
+4.	Create the directory  “data“ inside b
+		mkdir data
+		
+5.	Change the permission of b to read and write only
+		chmod 666 b
+
+6.	Create directory “data2”  inside b
+		-bash: cd: b: Permission denied
+		[cd b
+		mkdir data2]
+
+7.	Create data.txt file inside b
+		touch data.txt	
+
+8.	Rename the second level directory c to copied_dir
+		mv c copied_dir
+
+9.	Change permission of copied_dir to only executable
+		chmod 111 copied_dir
+
+10.	Try ls on copied_dir
+		cd copied_dir
+		ls
+		ls: cannot open directory '.': Permission denied
+
+11.	Try moving copied_dir to outside of a
+		
+
+12.	Try moving data directory outside of a
+
+
+13.	Now change the owner of the directory a to root
+
+
+14.	Change permission of a to read write and executable to only user
+		chmod 777 a
+
+15.	Try creating directory sample inside a
+		mkdir sample
+	
+16.	Create directory x outside a
+		cd ..
+		mkdir x
+
+17.	Try moving x inside a
+		cd x a
+
+18.	Create directory movies
+		mkdir movies
+	
+19.	Change group of movies to sudo
+		
+
+20.	Change group of movies to avahi
+		
+
+21.	Try changing permission after changing ownership to root
+	
+		
+22.	Try Changing permission after changing group to sudo without sudo
+		
+
+23.	Try Changing owner and group both to root
+		
+
+24.	Try changinging permission
+		
+
+25.	Try deleting the file
+
+		
+
